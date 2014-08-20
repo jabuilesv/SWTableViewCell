@@ -568,12 +568,6 @@ static NSString * const kTableViewPanState = @"state";
     self.leftUtilityClipConstraint.constant = MAX(0, CGRectGetMinX(frame) - CGRectGetMinX(self.frame));
     self.rightUtilityClipConstraint.constant = MIN(0, CGRectGetMaxX(frame) - CGRectGetMaxX(self.frame));
     
-    if (self.isEditing) {
-        self.leftUtilityClipConstraint.constant = 0;
-        self.cellScrollView.contentOffset = CGPointMake([self leftUtilityButtonsWidth], 0);
-        _cellState = kCellStateCenter;
-    }
-    
     self.leftUtilityClipView.hidden = (self.leftUtilityClipConstraint.constant == 0);
     self.rightUtilityClipView.hidden = (self.rightUtilityClipConstraint.constant == 0);
     
